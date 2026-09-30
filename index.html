@@ -164,6 +164,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 </style>
 </head>
 <body>
+<script>
+/* Tries .jpg, .jpeg, .png, .webp (lower and upper case) before showing the placeholder */
+function nextImg(img){
+  var exts=['jpg','jpeg','png','webp','JPG','JPEG','PNG'];
+  var base=img.getAttribute('data-base');
+  if(!base){ base=img.getAttribute('src').replace(/\.[a-zA-Z]+$/,''); img.setAttribute('data-base',base); img.setAttribute('data-i','0'); }
+  var i=parseInt(img.getAttribute('data-i'),10)+1;
+  if(i>=exts.length){ img.remove(); return; }
+  img.setAttribute('data-i',String(i));
+  img.src=base+'.'+exts[i];
+}
+</script>
 
 <nav class="nav" aria-label="Main">
   <div class="wrap">
@@ -203,7 +215,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </div>
       <div class="photo">
         <div class="meta"><span>photo.jpg</span><span>4 : 5</span></div>
-        <div class="shot" aria-label="Portrait of Shaza Wael">[Your photo]<img src="images/photo.jpg" alt="Shaza Wael" onerror="this.remove()"></div>
+        <div class="shot" aria-label="Portrait of Shaza Wael">[Your photo]<img src="images/photo.jpg" alt="Shaza Wael" onerror="nextImg(this)"></div>
         <div class="note">2+ years · 12 live websites · apps &amp; design systems</div>
       </div>
     </div>
@@ -261,21 +273,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       </div>
       <div class="apps">
         <article class="app">
-          <div class="stage"><div class="phone shot">[App screen]<img src="images/tecfy.jpg" alt="TECFY Attendance app screen" onerror="this.remove()"></div></div>
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/tecfy.jpg" alt="TECFY Attendance app screen" onerror="nextImg(this)"></div></div>
           <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">01</span><span>Mobile app · Tecfy</span></div>
           <h3>TECFY Attendance</h3>
           <p>Attendance app designed at Tecfy. Research, flows and final UI in the case study.</p>
           <a class="btn primary" style="align-self:flex-start" href="https://www.behance.net/gallery/224755933/TECFY-Attendance" target="_blank" rel="noopener">View case study ↗</a>
         </article>
         <article class="app">
-          <div class="stage"><div class="phone shot">[App screen]<img src="images/kacast.jpg" alt="KACAST app screen" onerror="this.remove()"></div></div>
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/kacast.jpg" alt="KACAST app screen" onerror="nextImg(this)"></div></div>
           <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">02</span><span>Mobile app</span></div>
           <h3>KACAST App</h3>
           <p>Mobile app case study covering the problem, user flows and high-fidelity screens.</p>
           <a class="btn primary" style="align-self:flex-start" href="https://www.behance.net/gallery/224620623/KACAST-App" target="_blank" rel="noopener">View case study ↗</a>
         </article>
         <article class="app">
-          <div class="stage"><div class="phone shot">[App screen]<img src="images/waqty.jpg" alt="Waqty app screen" onerror="this.remove()"></div></div>
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/waqty.jpg" alt="Waqty app screen" onerror="nextImg(this)"></div></div>
           <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">03</span><span>Freelance · 2022</span></div>
           <h3>Waqty</h3>
           <p>Responsive queue-management app, designed with product managers and mobile developers.</p>
@@ -323,7 +335,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       '<div class="top"><span><b>'+num+'</b> · '+esc(s.c)+'</span><span>Desktop</span></div>'+
       '<a class="browser" href="'+s.u+'" target="_blank" rel="noopener" aria-label="Open '+esc(s.n)+'">'+
         '<div class="bar"><i></i><i></i><i></i><span>'+esc(s.d)+'</span></div>'+
-        '<div class="shot">[Homepage screenshot]<img src="images/'+s.img+'.jpg" alt="'+esc(s.n)+' homepage" loading="lazy" onerror="this.remove()"></div>'+
+        '<div class="shot">[Homepage screenshot]<img src="images/'+s.img+'.jpg" alt="'+esc(s.n)+' homepage" loading="lazy" onerror="nextImg(this)"></div>'+
       '</a>'+
       '<h3>'+esc(s.n)+'</h3><p>'+esc(s.p)+'</p>'+
       '<div class="foot"><div class="tags"><span>UI/UX</span></div>'+
