@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaza Wael</title>
+<meta name="description" content="Shaza Wael — UI/UX designer. Websites, mobile apps and design systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#F6F5F1; --ink:#14131A; --muted:#5F5C6B; --line:#E2DED5; --card:#FFFFFF;
+  --accent:#5B3DF5; --accent-strong:#3F24D6; --tint:#ECE8FF; --tint-ink:#4A3AA8; --dot:#D6D2C8;
+  --note:#FFF4C9; --note-ink:#3D3410; --on-accent:#FFFFFF; --ok:#19B98A;
+  --display:'Bricolage Grotesque','Avenir Next','Segoe UI',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+  --mono:'DM Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121118; --ink:#F2F0F7; --muted:#A9A6B4; --line:#2C2A35; --card:#1B1A22;
+    --accent:#9C87FF; --accent-strong:#B9A9FF; --tint:#26213F; --tint-ink:#C9BEFF; --dot:#2A2833;
+    --note:#3A3320; --note-ink:#F4E7B5; --on-accent:#14131A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121118; --ink:#F2F0F7; --muted:#A9A6B4; --line:#2C2A35; --card:#1B1A22;
+  --accent:#9C87FF; --accent-strong:#B9A9FF; --tint:#26213F; --tint-ink:#C9BEFF; --dot:#2A2833;
+  --note:#3A3320; --note-ink:#F4E7B5; --on-accent:#14131A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  background-image:radial-gradient(var(--dot) 1.2px,transparent 1.2px);background-size:24px 24px}
+a{color:var(--accent)}
+a:hover{color:var(--accent-strong)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.mono{font-family:var(--mono);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.035em;line-height:1}
+section{padding-block:clamp(56px,9vw,112px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.brand{font-family:var(--display);font-weight:800;font-size:20px;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{display:inline-block;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px}
+.nav ul a:hover{background:var(--tint);color:var(--tint-ink)}
+@media (max-width:640px){.nav ul li:not(:last-child){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(56px,8vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--ok);display:block}
+.frame-label{font-family:var(--mono);font-size:13px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+.select{position:relative;display:inline-block;border:1.5px solid var(--accent);padding:4px clamp(10px,1.4vw,18px);margin-bottom:56px}
+.select h1{font-size:clamp(56px,10.5vw,150px);font-weight:800;letter-spacing:-.045em;line-height:.95}
+.h{position:absolute;width:11px;height:11px;background:var(--card);border:1.5px solid var(--accent)}
+.h.tl{top:-6px;left:-6px}.h.tr{top:-6px;right:-6px}.h.bl{bottom:-6px;left:-6px}.h.br{bottom:-6px;right:-6px}
+.size{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--on-accent);font-family:var(--mono);font-size:14px;padding:5px 12px;border-radius:6px;white-space:nowrap}
+.cursor{position:absolute;right:-18px;bottom:-70px;display:flex;align-items:flex-start;gap:2px;animation:float 4s ease-in-out infinite}
+.cursor span{margin-top:22px;background:var(--accent);color:var(--on-accent);font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px}
+@keyframes float{50%{transform:translate(-8px,-6px)}}
+@media (prefers-reduced-motion: reduce){.cursor{animation:none}}
+.lead{font-size:clamp(18px,1.8vw,21px);color:var(--muted);max-width:36em;margin:0 0 24px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{padding:8px 15px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:15px;font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{border-color:var(--line);background:var(--card);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.photo{display:flex;flex-direction:column;gap:10px}
+.photo .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.shot{position:relative;background:var(--tint);color:var(--tint-ink);display:grid;place-items:center;overflow:hidden;font-size:15px}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.photo .shot{aspect-ratio:4/5;border-radius:24px;max-width:100%}
+.note{align-self:flex-start;background:var(--note);color:var(--note-ink);padding:14px 18px;border-radius:4px 14px 14px 14px;font-size:15px;line-height:1.45;max-width:300px;box-shadow:0 6px 20px rgba(20,19,26,.08)}
+
+/* section heads */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.head .kicker{font-family:var(--mono);font-size:14px;color:var(--accent);display:block;margin-bottom:12px}
+.head h2{font-size:clamp(40px,6vw,68px);font-weight:800}
+.head p{margin:0;color:var(--muted);max-width:26em}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+.statement{font-size:clamp(34px,4.4vw,56px);font-weight:800;margin-bottom:24px}
+.statement em{font-style:normal;color:var(--accent)}
+.specs{margin:28px 0 0;display:grid}
+.specs div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-top:1px dashed var(--line)}
+.specs div:last-child{border-bottom:1px dashed var(--line)}
+.specs dt{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px}
+.specs dd{margin:0}
+@media (max-width:480px){.specs div{grid-template-columns:1fr;gap:4px}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,32px)}
+.timeline{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:20px}
+.timeline li{display:grid;grid-template-columns:12px 1fr;gap:16px}
+.timeline li::before{content:"";width:10px;height:10px;margin-top:7px;border-radius:50%;border:2px solid var(--accent)}
+.timeline li:first-child::before{background:var(--accent)}
+.timeline .when{font-family:var(--mono);font-size:13px;color:var(--accent)}
+.timeline h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:2px 0}
+.timeline p{margin:0;font-size:15px;color:var(--muted)}
+.skills{margin-top:18px}
+
+/* work grid */
+.stats{display:flex;gap:12px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 18px;display:flex;flex-direction:column}
+.stat b{font-family:var(--display);font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.stat.accent{background:var(--accent);border-color:var(--accent)}
+.stat.accent b,.stat.accent span{color:var(--on-accent)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font-family:var(--mono);font-size:13px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:40px}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px}
+.site{display:flex;flex-direction:column;gap:10px}
+.site .top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.site .top b{color:var(--accent);font-weight:500}
+.browser{border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 32px rgba(20,19,26,.07);transition:transform .25s ease,box-shadow .25s ease}
+.site:hover .browser{transform:translateY(-4px);box-shadow:0 18px 40px rgba(91,61,245,.16)}
+.bar{display:flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-bottom:1px solid var(--line)}
+.bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+.bar span{margin-left:10px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--paper);border-radius:6px;padding:3px 10px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.browser .shot{aspect-ratio:16/10}
+.site h3{font-size:26px;font-weight:800;margin-top:6px}
+.site p{margin:0;font-size:15px;color:var(--muted);flex:1}
+.site .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-family:var(--mono);font-size:11px;padding:5px 9px;border-radius:7px;background:var(--tint);color:var(--tint-ink)}
+.visit{font-weight:700;font-size:15px;padding:10px 0;text-decoration:none}
+
+/* apps */
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px}
+.app{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.stage{height:300px;border-radius:16px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--tint)}
+.phone{width:190px;height:270px;border:7px solid var(--ink);border-bottom:0;border-radius:30px 30px 0 0}
+.phone.shot{background:var(--card)}
+.app h3{font-size:28px;font-weight:800}
+.app p{margin:0;font-size:15px;color:var(--muted);flex:1}
+
+/* contact */
+.contact{background:#14131A;color:#F6F5F1;background-image:radial-gradient(#2E2C37 1.2px,transparent 1.2px);background-size:24px 24px}
+.contact .mono{color:#C9BEFF}
+.contact h2{font-size:clamp(44px,8vw,112px);font-weight:800;letter-spacing:-.045em;line-height:.98;max-width:12ch;margin:18px 0 40px}
+.contact h2 em{font-style:normal;color:#9C87FF}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.cc{border:1px solid #3A3845;border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.cc small{font-family:var(--mono);font-size:12px;color:#A9A6B4;letter-spacing:.04em}
+.cc a,.cc span.v{color:#F6F5F1;font-size:18px;font-weight:600;word-break:break-all;text-decoration:none;user-select:all}
+.cc a:hover{color:#C9BEFF}
+.copy{align-self:flex-start;font-family:var(--mono);font-size:12px;padding:8px 12px;min-height:36px;border-radius:8px;border:1px solid #4A4757;background:transparent;color:#C9BEFF;cursor:pointer}
+.copy:hover{border-color:#9C87FF}
+footer{background:#14131A;color:#A9A6B4;border-top:1px solid #2E2C37;padding-block:24px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Shaza Wael</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#websites">Websites</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="status"><i></i>Open to new opportunities</div>
+        <div class="frame-label">Frame / Hero</div>
+        <div class="select">
+          <h1>Shaza Wael</h1>
+          <span class="h tl"></span><span class="h tr"></span><span class="h bl"></span><span class="h br"></span>
+          <span class="size">UI/UX Designer</span>
+          <div class="cursor" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="var(--accent)" stroke="var(--paper)" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+            <span>Shaza</span>
+          </div>
+        </div>
+        <p class="lead">I take products from research to shipped screens: websites, mobile apps and design systems, with a data-informed approach from my Computer Science background.</p>
+        <ul class="chips">
+          <li>UX Research</li><li>UI Design</li><li>Design Systems</li><li>WordPress</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="#websites">See my work</a>
+          <a class="btn ghost" href="https://www.behance.net/shazawael" target="_blank" rel="noopener">Behance ↗</a>
+        </div>
+      </div>
+      <div class="photo">
+        <div class="meta"><span>photo.jpg</span><span>4 : 5</span></div>
+        <div class="shot" aria-label="Portrait of Shaza Wael">[Your photo]<img src="images/photo.jpg" alt="Shaza Wael" onerror="this.remove()"></div>
+        <div class="note">2+ years · 12 live websites · apps &amp; design systems</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="mono" style="color:var(--accent)">01 — About</span>
+          <h2 class="statement" style="margin-top:14px">I turn research into interfaces people <em>enjoy</em> using.</h2>
+          <p style="color:var(--muted);max-width:36em;margin:0">UI/UX designer with 2+ years of experience. I own projects end to end: discovery, wireframes, prototypes and hand-off, across WordPress builds, mobile apps and design systems for cross-functional teams.</p>
+          <dl class="specs">
+            <div><dt>EDUCATION</dt><dd>Computer Science (Bioinformatics), Mansoura University</dd></div>
+            <div><dt>TOOLS</dt><dd>Figma · Adobe XD · Sketch · Illustrator · Photoshop · WordPress</dd></div>
+            <div><dt>LANGUAGES</dt><dd>Arabic (native) · English (professional)</dd></div>
+          </dl>
+        </div>
+        <div class="panel">
+          <span class="mono">Experience</span>
+          <ol class="timeline">
+            <li><div><span class="when">AUG 2025 — MAY 2026</span><h3>Ben Salem Company</h3><p>UI/UX Designer &amp; WordPress Developer</p></div></li>
+            <li><div><span class="when">OCT 2023 — APR 2024</span><h3>Tecfy Company</h3><p>UI/UX Designer &amp; Graphic Designer</p></div></li>
+            <li><div><span class="when">APR 2023 — SEP 2023</span><h3>Daleenda Company</h3><p>UI/UX Designer</p></div></li>          </ol>
+          <ul class="chips skills">
+            <li>User Research</li><li>Usability Testing</li><li>Information Architecture</li><li>Prototyping</li><li>Interaction Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="websites">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">02 — Work</span><h2>Selected Websites</h2></div>
+        <div class="stats">
+          <div class="stat"><b>12</b><span>LIVE SITES</span></div>          <div class="stat accent"><b>UI/UX + WP</b><span>DESIGN &amp; BUILD</span></div>
+        </div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter websites">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button type="button" id="f-shop" data-f="shop" aria-pressed="false">E-commerce</button>
+        <button type="button" id="f-biz" data-f="biz" aria-pressed="false">Business &amp; services</button>
+      </div>
+      <div class="grid" id="sites"></div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="kicker">03 — Apps</span><h2>App Projects</h2></div>
+        <p>Mobile products designed from research to hand-off. Full case studies are on Behance.</p>
+      </div>
+      <div class="apps">
+        <article class="app">
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/tecfy.jpg" alt="TECFY Attendance app screen" onerror="this.remove()"></div></div>
+          <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">01</span><span>Mobile app · Tecfy</span></div>
+          <h3>TECFY Attendance</h3>
+          <p>Attendance app designed at Tecfy. Research, flows and final UI in the case study.</p>
+          <a class="btn primary" style="align-self:flex-start" href="https://www.behance.net/gallery/224755933/TECFY-Attendance" target="_blank" rel="noopener">View case study ↗</a>
+        </article>
+        <article class="app">
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/kacast.jpg" alt="KACAST app screen" onerror="this.remove()"></div></div>
+          <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">02</span><span>Mobile app</span></div>
+          <h3>KACAST App</h3>
+          <p>Mobile app case study covering the problem, user flows and high-fidelity screens.</p>
+          <a class="btn primary" style="align-self:flex-start" href="https://www.behance.net/gallery/224620623/KACAST-App" target="_blank" rel="noopener">View case study ↗</a>
+        </article>
+        <article class="app">
+          <div class="stage"><div class="phone shot">[App screen]<img src="images/waqty.jpg" alt="Waqty app screen" onerror="this.remove()"></div></div>
+          <div class="mono" style="display:flex;justify-content:space-between"><span style="color:var(--accent)">03</span><span>Freelance · 2022</span></div>
+          <h3>Waqty</h3>
+          <p>Responsive queue-management app, designed with product managers and mobile developers.</p>
+          <a class="btn ghost" style="align-self:flex-start" href="https://www.behance.net/shazawael" target="_blank" rel="noopener">More on Behance ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="mono">04 — Contact</span>
+      <h2>Let’s design something people <em>love</em> to use.</h2>
+      <div class="cards">
+        <div class="cc"><small>EMAIL</small><a href="mailto:Shazawael775@gmail.com">Shazawael775@gmail.com</a><button class="copy" type="button" data-copy="Shazawael775@gmail.com">Copy email</button></div>
+        <div class="cc"><small>PHONE / WHATSAPP</small><span class="v">+966561299230</span><button class="copy" type="button" data-copy="+966561299230">Copy number</button></div>
+        <div class="cc"><small>PORTFOLIO</small><a href="https://www.behance.net/shazawael" target="_blank" rel="noopener">behance.net/shazawael ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Shaza Wael</span><span>UI/UX Designer</span></div></footer>
+
+<script>
+(function(){
+  var sites = [
+    {n:"Inspira Interior Solutions",u:"https://inspirainterior.ae",d:"inspirainterior.ae",c:"Interior design",t:"biz",img:"inspira",p:"Luxury interior design and fit-out company. SEO-led homepage with a strong brand identity."},
+    {n:"Nutri Arabia",u:"https://nutriarabia.com",d:"nutriarabia.com",c:"E-commerce",t:"shop",img:"nutriarabia",p:"Online store for natural wellness and slimming supplements."},
+    {n:"FitArt SA",u:"https://fitartsa.com",d:"fitartsa.com",c:"Business",t:"biz",img:"fitart",p:"Business website, from UI/UX design to WordPress build."},
+    {n:"Waha Fix",u:"https://wahafix.com",d:"wahafix.com",c:"Maintenance",t:"biz",img:"wahafix",p:"Building maintenance: leak detection, insulation and renovation services."},
+    {n:"Feel Great MENA",u:"https://feelgreatmena.com",d:"feelgreatmena.com",c:"E-commerce",t:"shop",img:"feelgreat",p:"Storefront for Unicity’s Feel Great wellness system."},
+    {n:"Hisn Al Mabani",u:"https://hisnalmabani.com",d:"hisnalmabani.com",c:"Maintenance",t:"biz",img:"hisn",p:"Website for a building maintenance and restoration company."},
+    {n:"Nexus Elevate Consultants",u:"https://nexus-ae.com",d:"nexus-ae.com",c:"Consulting",t:"biz",img:"nexus",p:"Consulting firm covering project management, marketing, interior design and brokerage."},
+    {n:"Eiios Son",u:"https://www.eiiosson.com",d:"eiiosson.com",c:"Skincare",t:"shop",img:"eiiosson",p:"Online store for a dermatologist-developed skincare and haircare brand."},
+    {n:"Apex Systems (AV)",u:"https://apexsys.com.sa/av/",d:"apexsys.com.sa/av",c:"Audio-visual",t:"biz",img:"apex",p:"Website for a professional audio-visual systems integrator."},
+    {n:"East Gate Tourism",u:"https://eastgatetourism.com",d:"eastgatetourism.com",c:"Travel",t:"biz",img:"eastgate",p:"Travel agency website for tour packages."},
+    {n:"Nashmi Logistics",u:"https://na-shmi.com/en/",d:"na-shmi.com",c:"Logistics",t:"biz",img:"nashmi",p:"Website for an e-commerce fulfilment and logistics startup."},
+    {n:"Run Jo",u:"https://run-jo.com",d:"run-jo.com",c:"Business",t:"biz",img:"runjo",p:"Business website, from UI/UX design to WordPress build."}
+  ];
+  var grid = document.getElementById('sites');
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  grid.innerHTML = sites.map(function(s,i){
+    var num = String(i+1).padStart(2,'0');
+    return '<article class="site" data-t="'+s.t+'">'+
+      '<div class="top"><span><b>'+num+'</b> · '+esc(s.c)+'</span><span>Desktop</span></div>'+
+      '<a class="browser" href="'+s.u+'" target="_blank" rel="noopener" aria-label="Open '+esc(s.n)+'">'+
+        '<div class="bar"><i></i><i></i><i></i><span>'+esc(s.d)+'</span></div>'+
+        '<div class="shot">[Homepage screenshot]<img src="images/'+s.img+'.jpg" alt="'+esc(s.n)+' homepage" loading="lazy" onerror="this.remove()"></div>'+
+      '</a>'+
+      '<h3>'+esc(s.n)+'</h3><p>'+esc(s.p)+'</p>'+
+      '<div class="foot"><div class="tags"><span>UI/UX</span></div>'+
+      '<a class="visit" href="'+s.u+'" target="_blank" rel="noopener">Visit site ↗</a></div>'+
+    '</article>';
+  }).join('');
+
+  var btns = document.querySelectorAll('.filters button');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.f;
+      btns.forEach(function(x){x.setAttribute('aria-pressed', x===b ? 'true':'false');});
+      grid.querySelectorAll('.site').forEach(function(el){ el.hidden = !(f==='all' || el.dataset.t===f); });
+    });
+  });
+
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var text = b.dataset.copy, label = b.textContent;
+      function done(msg){ b.textContent = msg; setTimeout(function(){ b.textContent = label; }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function(){ done('Copied'); }, function(){ select(); });
+      } else { select(); }
+      function select(){
+        var v = b.parentNode.querySelector('a, .v'); var r = document.createRange(); r.selectNodeContents(v);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected. Press Ctrl/Cmd+C');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
